@@ -8,11 +8,11 @@ const TodoForm = (props) => {
                 <label>Add Todo</label>
                 <input
                 name="name"
-                value={props.newToDo}
+                value={props.currentToDo.task}
                 onChange={props.handleInput}
                 />
                 <button type="submit">Submit</button>
-                <button>Clear All</button>
+                <button onClick={() => props.deleteToDo()}>Clear Completed</button>
             </form>
         </div>
     )

@@ -35,7 +35,18 @@ class App extends React.Component {
     const currentToDo = {task: toDoText, id: Date.now(), completed: false}
     this.setState({currentToDo})
   }
-  
+  toggle = (id) => {
+    const newToDos = this.state.toDos.map(item => {
+      return item.id === id ? {...item, completed: !item.completed} : item
+    })
+    this.setState({toDos: newToDos});
+  }
+  deleteToDo = () => {
+    const newToDos = this.state.toDos.filter(item => {
+      return item.completed === false;
+    })
+    this.setState({toDos: newToDos})
+  }
 
   render() {
     return (
@@ -45,9 +56,11 @@ class App extends React.Component {
         addToDo={this.addToDo}
         handleInput={this.handleInput}
         currentToDo={this.state.currentToDo}
+        deleteToDo={this.deleteToDo}
         />
         <TodoList
         toDos={this.state.toDos}
+        toggle={this.toggle}
         />
       </div>
     );
