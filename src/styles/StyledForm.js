@@ -6,6 +6,9 @@ export const StyledForm = styled.div`
     align-items: center;
     width: 50%;
     padding: 20px;
+    border: solid black 1px;
+    box-shadow: 10px 10px 5px grey;
+    margin-bottom: 20px;
     
     form {
         display: flex;
