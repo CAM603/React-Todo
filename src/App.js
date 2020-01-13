@@ -10,31 +10,20 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      toDos : [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ],
-      currentTodo: {
+      toDos : [],
+      currentToDo: {
         task: '',
         id: Date.now(),
         completed: false}
     };
   }
-  addTodo = event => {
+  addToDo = event => {
     event.preventDefault();
-    const newTodo = this.state.currentTodo;
-    const todos = [...this.state.toDos, newTodo]
+    const newToDo = this.state.currentToDo;
+    const toDos = [...this.state.toDos, newToDo]
     this.setState({
-      toDos: todos, 
-      currentTodo: {
+      toDos: toDos, 
+      currentToDo: {
         task: '',
         id: Date.now(),
         completed: false
@@ -42,22 +31,23 @@ class App extends React.Component {
     })
   }
   handleInput = event => {
-    const todoText = event.target.value;
-    const currentTodo = {task: todoText, id: Date.now(), completed: false}
-    this.setState({currentTodo})
+    const toDoText = event.target.value;
+    const currentToDo = {task: toDoText, id: Date.now(), completed: false}
+    this.setState({currentToDo})
   }
+  
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm
-        addTodo={this.addTodo}
+        addToDo={this.addToDo}
         handleInput={this.handleInput}
-        currentTodo={this.state.currentTodo}
+        currentToDo={this.state.currentToDo}
         />
         <TodoList
-        todos={this.state.toDos}
+        toDos={this.state.toDos}
         />
       </div>
     );

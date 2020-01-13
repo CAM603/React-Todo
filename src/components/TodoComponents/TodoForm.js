@@ -4,11 +4,11 @@ const TodoForm = (props) => {
 
     return (
         <div>
-            <form onSubmit={props.addTodo}>
+            <form onSubmit={props.addToDo}>
                 <label>Add Todo</label>
                 <input
                 name="name"
-                value={props.currentTodo.task}
+                value={props.newToDo}
                 onChange={props.handleInput}
                 />
                 <button type="submit">Submit</button>
