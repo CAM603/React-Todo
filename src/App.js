@@ -18,6 +18,7 @@ class App extends React.Component {
         completed: false}
     };
   }
+
   addToDo = event => {
     if (!this.state.currentToDo.task) {
       event.preventDefault();
@@ -26,6 +27,7 @@ class App extends React.Component {
     event.preventDefault();
     const newToDo = this.state.currentToDo;
     const toDos = [...this.state.toDos, newToDo]
+    
     this.setState({
       toDos: toDos, 
       currentToDo: {
@@ -35,21 +37,25 @@ class App extends React.Component {
       }
     })
   }
+  
   handleInput = event => {
     const toDoText = event.target.value;
     const currentToDo = {task: toDoText, id: Date.now(), completed: false}
     this.setState({currentToDo})
   }
+
   toggle = (id) => {
     const newToDos = this.state.toDos.map(item => {
       return item.id === id ? {...item, completed: !item.completed} : item
     })
     this.setState({toDos: newToDos});
   }
+  
   deleteToDo = () => {
     const newToDos = this.state.toDos.filter(item => {
       return item.completed === false;
     })
+    
     this.setState({toDos: newToDos})
   }
 

@@ -1,5 +1,6 @@
 .toDo {
     color: blue;
+    font-size: 1.5rem;
 }
 .toDo.completed {
     text-decoration: line-through;
