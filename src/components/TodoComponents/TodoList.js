@@ -3,10 +3,12 @@
 import React from 'react';
 import Todo from './Todo';
 
+import { StyledToDoList } from '../../styles/StyledToDoList';
+
 const TodoList = (props) => {
 
     return (
-        <div>
+        <StyledToDoList>
             {props.toDos.map(toDo => (
                 <Todo
                 key={toDo.id}
@@ -16,7 +18,7 @@ const TodoList = (props) => {
                 toggle={props.toggle}
                 />
             ))}
-        </div>
+        </StyledToDoList>
     )
 }
 

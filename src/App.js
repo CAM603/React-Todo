@@ -2,6 +2,7 @@ import React from 'react';
 
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import { StyledApp } from './styles/StyledApp';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -18,6 +19,10 @@ class App extends React.Component {
     };
   }
   addToDo = event => {
+    if (!this.state.currentToDo.task) {
+      event.preventDefault();
+      return
+    }
     event.preventDefault();
     const newToDo = this.state.currentToDo;
     const toDos = [...this.state.toDos, newToDo]
@@ -50,7 +55,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <StyledApp>
         <TodoForm
         addToDo={this.addToDo}
         handleInput={this.handleInput}
@@ -61,7 +66,8 @@ class App extends React.Component {
         toDos={this.state.toDos}
         toggle={this.toggle}
         />
-      </div>
+        <button className="clear" onClick={() => this.deleteToDo()}>Clear Completed</button>
+      </StyledApp>
     );
   }
 }

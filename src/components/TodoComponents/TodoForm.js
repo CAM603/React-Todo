@@ -1,9 +1,10 @@
 import React from 'react';
+import { StyledForm } from '../../styles/StyledForm';
 
 const TodoForm = (props) => {
 
     return (
-        <div>
+        <StyledForm>
             <form onSubmit={props.addToDo}>
                 <label>Add Todo</label>
                 <input
@@ -12,9 +13,8 @@ const TodoForm = (props) => {
                 onChange={props.handleInput}
                 />
                 <button type="submit">Add</button>
-                <button onClick={() => props.deleteToDo()}>Clear Completed</button>
             </form>
-        </div>
+        </StyledForm>
     )
 }
 
