@@ -16,6 +16,11 @@ class App extends React.Component {
       }]
     }
   }
+  componentDidMount() {
+    if (localStorage.getItem('list')) {
+      this.setState({list: [...JSON.parse(localStorage.getItem('list'))]})
+    }
+  }
   addItem = (item) => {
     if (!item) {
       return
@@ -30,19 +35,22 @@ class App extends React.Component {
     this.setState({
       list: [...this.state.list, newItem]
     })
+    localStorage.setItem('list', JSON.stringify([...this.state.list, newItem]))
   }
   toggleItem = (id) => {
     const newList = this.state.list.map(item => {
       return item.id === id ? {...item, completed: !item.completed} : item
     })
     this.setState({list: newList})
+    localStorage.setItem('list', JSON.stringify(newList))
   }
-
+  
   deleteItem = () => {
     const newList = this.state.list.filter(item => {
       return item.completed === false;
     })
     this.setState({list: newList})
+    localStorage.setItem('list', JSON.stringify([...this.state.list, newList]))
   }
   
   render() {
