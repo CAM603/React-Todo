@@ -1,0 +1,9 @@
+.toDo {
+    color: blue;
+    font-size: 1.5rem;
+    padding: 5px;
+}
+.toDo.completed {
+    text-decoration: line-through;
+    color: red;
+}
