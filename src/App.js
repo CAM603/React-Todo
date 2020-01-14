@@ -18,7 +18,11 @@ class App extends React.Component {
         completed: false}
     };
   }
-
+  componentDidMount() {
+    if (window.localStorage.getItem('toDos')) {
+      return this.setState({toDos: [...JSON.parse(window.localStorage.getItem('toDos'))]})
+    }
+  }
   addToDo = event => {
     if (!this.state.currentToDo.task) {
       event.preventDefault();
@@ -39,6 +43,7 @@ class App extends React.Component {
         completed: false
       }
     })
+    window.localStorage.setItem('toDos', JSON.stringify([...this.state.toDos, newToDo]))
   }
   
   handleInput = event => {
@@ -52,6 +57,7 @@ class App extends React.Component {
       return item.id === id ? {...item, completed: !item.completed} : item
     })
     this.setState({toDos: newToDos});
+    window.localStorage.setItem('toDos', JSON.stringify(newToDos))
   }
   
   deleteToDo = () => {
@@ -60,6 +66,7 @@ class App extends React.Component {
     })
     
     this.setState({toDos: newToDos})
+    window.localStorage.setItem('toDos', JSON.stringify(newToDos))
   }
 
   render() {
