@@ -7,8 +7,12 @@ const TodoList = (props) => {
     return (
         <div>
             {props.list.map(item => (
-                <Todo task={item.task}/>
+                <Todo 
+                item={item}
+                toggleItem={props.toggleItem}
+                />
             ))}
+            <button onClick={() => props.deleteItem()}>Remove Completed</button>
         </div>
     )
 }

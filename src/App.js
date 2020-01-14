@@ -16,22 +16,40 @@ class App extends React.Component {
       }]
     }
   }
-  addItem = () => {
-
+  addItem = (item) => {
+    const newItem = {
+      task: item,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({
+      list: [...this.state.list, newItem]
+    })
   }
+  toggleItem = (id) => {
+    const newList = this.state.list.map(item => {
+      return item.id === id ? {...item, completed: !item.completed} : item
+    })
+    this.setState({list: newList})
+  }
+
   deleteItem = () => {
-
-  }
-  toggleItem = () => {
-
+    const newList = this.state.list.filter(item => {
+      return item.completed === false;
+    })
+    this.setState({list: newList})
   }
   
   render() {
     return (
       <div>
-        <TodoForm />
+        <TodoForm
+        addItem={this.addItem}
+        />
         <TodoList
         list={this.state.list}
+        toggleItem={this.toggleItem}
+        deleteItem={this.deleteItem}
         />
       </div>
     );
