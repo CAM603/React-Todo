@@ -23,6 +23,9 @@ class App extends React.Component {
     if (!this.state.currentToDo.task) {
       event.preventDefault();
       return
+    } else if (this.state.toDos.find(item => item.task === this.state.currentToDo.task)) {
+      event.preventDefault();
+      return
     }
     event.preventDefault();
     const newToDo = this.state.currentToDo;

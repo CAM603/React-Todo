@@ -11,5 +11,12 @@ export const StyledApp = styled.div`
         border-radius: 4px;
         margin-top: 15px;
         font-size: 1rem;
+        box-shadow: 10px 10px 5px grey;
+        color: white;
+    }
+
+    .clear:hover {
+        background: salmon;
+        color: black;
     }
 `;

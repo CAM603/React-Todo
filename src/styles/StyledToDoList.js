@@ -10,7 +10,6 @@ export const StyledToDoList = styled.div`
 
     div {
         border-bottom: solid black 1px;
-        width: 100%;
         display: flex;
         justify-content: center;
     }

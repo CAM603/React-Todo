@@ -14,7 +14,7 @@ export const StyledForm = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-
+        
         label {
             font-size: 1.5rem;
             text-align: center;
@@ -23,12 +23,18 @@ export const StyledForm = styled.div`
             padding: 5px;
             margin: 10px;
             border-radius: 4px;
+            font-size: 1.2rem;
         }
         button {
-            padding: 5px 10px;
+            padding: 5px 20px;
             background: green;
             border-radius: 4px;
             font-size: 1rem;
+            color: white;
+        }
+        button:hover {
+            color: black;
+            background: lightgreen;
         }
     }
 `;
