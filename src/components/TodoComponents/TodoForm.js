@@ -6,7 +6,7 @@ const TodoForm = (props) => {
     return (
         <StyledForm>
             <form onSubmit={props.addToDo}>
-                <label>Add Todo</label>
+                <label>My To Do List</label>
                 <input
                 name="name"
                 value={props.currentToDo.task}
