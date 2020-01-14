@@ -17,6 +17,11 @@ class App extends React.Component {
     }
   }
   addItem = (item) => {
+    if (!item) {
+      return
+    } else if (this.state.list.find(el => el.task === item)) {
+      return
+    }
     const newItem = {
       task: item,
       id: Date.now(),
